@@ -1,7 +1,4 @@
-# Next.js + Contentlayer
+# blog
 
-A template with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.
-
-https://next-contentlayer.vercel.app
-
-
+cloned from [shadcn/next-contentlayer](https://github.com/shadcn/next-contentlayer/)
+<img src="https://skillicons.dev/icons?i=tailwind,ts,react,nextjs&perline=15" alt="web dev" height="40"/>
