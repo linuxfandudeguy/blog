@@ -1,6 +1,6 @@
 # blog
 
-<img src="https://skillicons.dev/icons?i=tailwind,ts,react,nextjs,js,md,verce,pnpm&perline=15" alt="icons" height="40"/>
+<img src="https://skillicons.dev/icons?i=tailwind,ts,react,nextjs,js,md,vercel,pnpm&perline=15" alt="icons" height="40"/>
 
 
 <strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
