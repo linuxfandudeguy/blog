@@ -1,7 +1,10 @@
 # blog
 
 <img src="https://skillicons.dev/icons?i=tailwind,ts,react,nextjs,js,md,vercel,pnpm&perline=15" alt="icons" height="40"/>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&multiline=true&width=435&height=92&lines=My+blog+made+with+Contentlayer%2C+;Next.js%2C+React%2C+Typescript+and;Tailwind." alt="Typing SVG" /></a><strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&multiline=true&width=435&height=92&lines=My+blog+made+with+Contentlayer%2C+;Next.js%2C+React%2C+Typescript+and;Tailwind." alt="Typing SVG" />
+</a>
+
+<strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
 
 
 cloned from [shadcn/next-contentlayer](https://github.com/shadcn/next-contentlayer/)
