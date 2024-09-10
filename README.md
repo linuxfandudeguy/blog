@@ -1,14 +1,7 @@
 # blog
 
 <img src="https://skillicons.dev/icons?i=tailwind,ts,react,nextjs,js,md,vercel,pnpm&perline=15" alt="icons" height="40"/>
-<div >
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/>
-	<img width="50" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/>
-	<img width="50" src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/5f8c622c-c217-4649-b0a9-7e0ee24bd704" alt="Next.js" title="Next.js"/>
-</div>
-<div style="display: flex; align-items: flex-start;"><img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" /></div>
-
-<strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&multiline=true&width=435&height=92&lines=My+blog+made+with+Contentlayer%2C+;Next.js%2C+React%2C+Typescript+and;Tailwind." alt="Typing SVG" /></a><strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
 
 
 cloned from [shadcn/next-contentlayer](https://github.com/shadcn/next-contentlayer/)
