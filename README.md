@@ -11,3 +11,7 @@ cloned from [shadcn/next-contentlayer](https://github.com/shadcn/next-contentlay
 # this is my blog
 
 My blog was cloned from a vercel template and I fell in love with it because it was more customizable then Blogger, but the designs were good enough so it didn't need any customization.
+
+Here is the repo url:
+
+[**shadcn/next-contentlayer**](https://github.com/shadcn/next-contentlayer/)
