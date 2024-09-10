@@ -1,0 +1,131 @@
+---
+title: How to Use Express Routes, Implement CORS, and Deploy an API to Vercel
+description: A Step-by-Step Guide to Setting Up an Express API with CORS on Vercel
+date: "2024-09-09"
+---
+
+In this post, I’ll walk you through how to set up an Express.js API, enable CORS (Cross-Origin Resource Sharing), and deploy it to Vercel. This guide assumes you have a basic understanding of JavaScript and Node.js.
+
+## Step 1: Set Up Your Express.js Project
+
+First, you need to create a new directory for your project and initialize a new Node.js application.
+
+```bash
+mkdir my-express-api
+cd my-express-api
+npm init -y
+```
+
+Next, install Express and the CORS middleware:
+
+```bash
+npm install express cors
+```
+
+## Step 2: Create Your Express Server
+
+Create a file named `server.js` and set up a basic Express server with some routes.
+
+```javascript
+// server.js
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Enable CORS
+app.use(cors());
+
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// Sample route
+app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Hello from the Express server!' });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+```
+
+## Step 3: Enable CORS
+
+The `cors` middleware is now included in your application. It allows you to handle cross-origin requests smoothly. By default, this will enable CORS for all routes in your application, but you can also customize it by passing options.
+
+```javascript
+const corsOptions = {
+  origin: 'https://your-frontend-url.com', // Replace with your frontend URL
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
+```
+
+## Step 4: Test Your API Locally
+
+To test your API, run the following command:
+
+```bash
+node server.js
+```
+
+You can now access your API at `http://localhost:3000/api/hello`. Use a tool like Postman or curl to see the JSON response.
+
+## Step 5: Prepare for Vercel Deployment
+
+Create a `vercel.json` file in your project directory to specify configuration settings for Vercel.
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server.js" }
+  ]
+}
+```
+
+## Step 6: Deploy to Vercel
+
+If you haven't already, install the Vercel CLI:
+
+```bash
+npm install -g vercel
+```
+
+Log in or sign up for a Vercel account:
+
+```bash
+vercel login
+```
+
+Now, deploy your application using:
+
+```bash
+vercel
+```
+
+Follow the prompts to set up your project. Vercel will automatically detect your `vercel.json` configuration and deploy your API.
+
+## Step 7: Test Your Deployed API
+
+Once deployment is complete, Vercel will provide you with a URL for your newly deployed API. Access `https://your-vercel-url/api/hello` in your browser or Postman, and you should see the JSON response.
+
+## Conclusion
+
+You've successfully created an Express API, enabled CORS, and deployed it to Vercel. This lightweight setup is perfect for serving data to your frontend applications. You can extend the API by adding more routes and integrating with databases as needed.
+
+If you’re interested in exploring more about Vercel and Express, check out the official documentation:
+
+- [Vercel Documentation](https://vercel.com/docs)
+- [Express Documentation](https://expressjs.com/en/starter/installing.html)
+
+Happy coding!
