@@ -10,11 +10,13 @@ export async function GET(request: Request): Promise<Response> {
   const feedTitle = 'My RSS Feed';
   const feedDescription = 'This is a description of my RSS feed.';
   
-  // Get the base URL by removing the pathname and using only the origin
-  const feedLink = new URL(request.url).origin + '/api/rss'; // Adjust the path if needed
+  // Base URL from the request
+  const baseUrl = new URL(request.url).origin;  // Gets the base URL
+  const feedLink = `${baseUrl}/api/rss`;         // Feed link
+
   const postsDirectory = path.join(process.cwd(), 'content/posts');
 
-  // Read the posts directory and get the list of markdown files
+  // Read the files from the posts directory
   const filenames = fs.readdirSync(postsDirectory);
 
   // Create an array to hold the items
@@ -24,13 +26,15 @@ export async function GET(request: Request): Promise<Response> {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
 
-    // Extract front matter from the markdown file manually
+    // Extract metadata
     const metadata = extractFrontMatter(fileContents);
     if (metadata) {
+      const postUrl = `${baseUrl}/posts/${filename.replace(/\.md$/, '')}`; // Constructing the post URL
+      
       items.push({
         title: metadata.title || 'No Title',
         description: metadata.description || 'No Description',
-        link: `https://example.com/posts/${filename.replace('.md', '')}`,
+        link: postUrl, // Correctly linked to the post
       });
     }
   }
@@ -54,7 +58,7 @@ export async function GET(request: Request): Promise<Response> {
         ${itemsXml}
       </channel>
     </rss>
-  `;
+  `.trim(); // Remove extra whitespace
 
   return new Response(rssXml, {
     headers: {
@@ -74,7 +78,6 @@ function extractFrontMatter(content: string): PostMetadata | null {
       description: '',
     };
 
-    // Split the front matter into lines and parse key-value pairs
     frontMatterContent.split('\n').forEach(line => {
       const [key, ...value] = line.split(':');
       if (key && value.length > 0) {
