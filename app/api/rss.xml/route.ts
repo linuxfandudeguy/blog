@@ -12,7 +12,7 @@ export async function GET(request: Request): Promise<Response> {
   
   // Base URL from the request
   const baseUrl = new URL(request.url).origin;  // Gets the base URL
-  const feedLink = `${baseUrl}/api/rss`;         // Feed link
+  const feedLink = `${baseUrl}/api/rss.xml`;         // Feed link
 
   const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -62,7 +62,7 @@ export async function GET(request: Request): Promise<Response> {
 
   return new Response(rssXml, {
     headers: {
-      'Content-Type': 'application/rss+xml',
+      'Content-Type': 'application/xml',
     },
   });
 }
