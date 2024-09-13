@@ -29,7 +29,7 @@ export async function GET(request: Request): Promise<Response> {
     // Extract metadata
     const metadata = extractFrontMatter(fileContents);
     if (metadata) {
-      const postUrl = `${baseUrl}/posts/${filename.replace(/\.md$/, '')}`; // Constructing the post URL
+      const postUrl = `${baseUrl}/posts/${filename.replace(/\.mdx$/, '')}`; // Constructing the post URL
       
       items.push({
         title: metadata.title || 'No Title',
