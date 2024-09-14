@@ -1,3 +1,5 @@
+"use client";  // Add this directive at the top to indicate this is a client component
+
 import React, { useEffect } from 'react';
 import Link from "next/link";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -41,7 +43,16 @@ const Page = () => {
           </div>
         </header>
         <main>
-          
+          <h1 className="text-2xl font-bold mb-4">Example Code Block</h1>
+          <pre>
+            <code className="language-javascript">
+              {`
+                const greet = () => {
+                  console.log("Hello, World!");
+                };
+              `}
+            </code>
+          </pre>
         </main>
         {/* CuterCounter Code */}
         <div className="flex justify-center mt-10">
