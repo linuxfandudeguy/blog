@@ -34,6 +34,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <main>{children}</main>
+            {/* CuterCounter Code */}
+            <div className="flex justify-center mt-10">
+              <a href="https://www.cutercounter.com/" target="_blank">
+                <img src="https://www.cutercounter.com/hits.php?id=hexqdxco&nd=9&style=80" border="0" alt="counter for blog" />
+              </a>
+            </div>
+            {/* End of CuterCounter Code */}
           </div>
           <Analytics />
         </ThemeProvider>
