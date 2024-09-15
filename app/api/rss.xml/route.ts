@@ -36,7 +36,7 @@ export async function GET(request: Request): Promise<Response> {
         title: metadata.title || 'No Title',
         description: metadata.description || 'No Description',
         link: postUrl, // Correctly linked to the post
-        pubDate: metadata.date ? metadata.date.toISOString().split('T')[0] : undefined, // Format date to YYYY-MM-DD
+        pubDate: metadata.date ? formatPubDate(metadata.date) : undefined, // Format the date
       });
     }
   }
@@ -68,6 +68,12 @@ export async function GET(request: Request): Promise<Response> {
       'Content-Type': 'application/xml',
     },
   });
+}
+
+// Function to format publication date
+function formatPubDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
 }
 
 function extractFrontMatter(content: string): PostMetadata | null {
@@ -108,9 +114,9 @@ function extractFrontMatter(content: string): PostMetadata | null {
 // Utility function to escape XML special characters
 function escapeXml(unsafe: string): string {
   return unsafe
-    .replace(/&/g, '&')
-    .replace(/</g, '<')
-    .replace(/>/g, '>')
-    .replace(/"/g, '"')
-    .replace(/'/g, '');
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
