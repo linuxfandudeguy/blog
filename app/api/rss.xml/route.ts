@@ -36,7 +36,7 @@ export async function GET(request: Request): Promise<Response> {
         title: metadata.title || 'No Title',
         description: metadata.description || 'No Description',
         link: postUrl, // Correctly linked to the post
-        pubDate: metadata.date ? metadata.date.toUTCString() : undefined, // Format the date as needed
+        pubDate: metadata.date ? metadata.date.toISOString().split('T')[0] : undefined, // Format date to YYYY-MM-DD
       });
     }
   }
@@ -108,9 +108,9 @@ function extractFrontMatter(content: string): PostMetadata | null {
 // Utility function to escape XML special characters
 function escapeXml(unsafe: string): string {
   return unsafe
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
+    .replace(/&/g, '&')
+    .replace(/</g, '<')
+    .replace(/>/g, '>')
+    .replace(/"/g, '"')
+    .replace(/'/g, '');
 }
