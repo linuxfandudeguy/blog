@@ -4,6 +4,7 @@ import path from 'path';
 interface PostMetadata {
   title: string;
   description: string;
+  date?: Date; // Optional date property
 }
 
 export async function GET(request: Request): Promise<Response> {
@@ -20,7 +21,7 @@ export async function GET(request: Request): Promise<Response> {
   const filenames = fs.readdirSync(postsDirectory);
 
   // Create an array to hold the items
-  const items: { title: string; description: string; link: string }[] = [];
+  const items: { title: string; description: string; link: string; pubDate?: string }[] = [];
 
   for (const filename of filenames) {
     const filePath = path.join(postsDirectory, filename);
@@ -30,11 +31,12 @@ export async function GET(request: Request): Promise<Response> {
     const metadata = extractFrontMatter(fileContents);
     if (metadata) {
       const postUrl = `${baseUrl}/posts/${filename.replace(/\.mdx$/, '')}`; // Constructing the post URL
-      
+
       items.push({
         title: metadata.title || 'No Title',
         description: metadata.description || 'No Description',
         link: postUrl, // Correctly linked to the post
+        pubDate: metadata.date ? metadata.date.toUTCString() : undefined, // Format the date as needed
       });
     }
   }
@@ -45,6 +47,7 @@ export async function GET(request: Request): Promise<Response> {
         <title>${escapeXml(item.title)}</title>
         <description>${escapeXml(item.description)}</description>
         <link>${escapeXml(item.link)}</link>
+        ${item.pubDate ? `<pubDate>${escapeXml(item.pubDate)}</pubDate>` : ''}
       </item>
     `)
     .join('\n');
@@ -87,6 +90,11 @@ function extractFrontMatter(content: string): PostMetadata | null {
           metadata.title = trimmedValue;
         } else if (trimmedKey === 'description') {
           metadata.description = trimmedValue;
+        } else if (trimmedKey === 'date') {
+          const date = new Date(trimmedValue); // Parse the date
+          if (!isNaN(date.getTime())) {
+            metadata.date = date; // Only set if the date is valid
+          }
         }
       }
     });
