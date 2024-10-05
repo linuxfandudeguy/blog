@@ -1,0 +1,60 @@
+---
+title: Why You Shouldn't Be So Reliant On CDNs
+description: This blog article goes over the reasons why you should not be reliant on CDNs.
+date: "2024-05-10"
+---
+# Why You Shouldn't Be So Reliant On CDNs
+
+When building modern web applications, the concept of using CDNs (Content Delivery Networks) to serve assets is quite common. While they provide several advantages, especially in terms of performance and caching, it’s important to understand that relying on CDNs isn’t always the best practice. In this article, we’ll explore the reasons why you should reconsider being overly dependent on CDNs.
+
+## 1. **Single Point of Failure**
+
+One of the major downsides of relying on a CDN is that it introduces a single point of failure. If the CDN provider experiences an outage or downtime, all the resources served through it can become inaccessible. This means that critical assets like JavaScript files, CSS, fonts, or even images may fail to load, leaving your website inoperable. Recent outages of popular CDN services have left many major websites crippled, proving that even the most reputable services aren't immune to downtime.
+
+### Solution: 
+Self-hosting your essential assets ensures that you have control over uptime and reduces external dependencies. **Consider simply uploading the files you want directly to your website**—it’s a straightforward solution that cuts out the risk of relying on external services.
+
+## 2. **Security Risks**
+
+CDNs can introduce security vulnerabilities. When you load resources like third-party JavaScript libraries or stylesheets from a CDN, you're trusting that the files hosted on that CDN are safe and haven’t been compromised. A hacker could potentially inject malicious code into a resource hosted on the CDN, which could then get served to your users. Even popular CDNs are not invulnerable to attacks, making it a risk to offload responsibility for crucial assets to them.
+
+### Solution: 
+Self-hosting libraries and assets allows you to verify the integrity of those files and reduce the risk of external attacks. Consider using tools like Subresource Integrity (SRI) to ensure that the files from a CDN haven’t been tampered with. **Again, simply uploading the files to your own server gives you full control over security.**
+
+## 3. **Performance Overhead**
+
+While CDNs are designed to improve performance by serving assets from servers closer to the user, this benefit isn't always as effective as you'd hope. In cases where users are already geographically close to your server, the CDN can actually add latency by adding an unnecessary layer of indirection. Additionally, there’s always the risk of network congestion between the user and the CDN’s edge servers, which can lead to slower load times.
+
+### Solution: 
+Evaluate the geographical distribution of your user base. If the majority of users are close to your server, you might not need a CDN. Instead, optimizing your own hosting infrastructure or using a multi-region deployment can give you similar, if not better, performance. **Uploading files directly to your site also ensures that they are served from your own server, avoiding this potential overhead.**
+
+## 4. **Costs Add Up**
+
+At first glance, CDNs may seem like a cost-effective solution to distribute your website’s assets. However, as your traffic grows, so do the costs. CDNs typically charge based on data transfer or the amount of traffic your website generates. Over time, these costs can snowball, especially if you’re running a high-traffic site.
+
+### Solution: 
+Hosting assets on your own infrastructure can help you avoid unpredictable CDN costs. While there are costs associated with self-hosting (bandwidth, storage, etc.), you have more control over them. Plus, modern web servers and caching techniques can be highly optimized to handle large amounts of traffic efficiently. **Uploading files directly to your server not only gives you control over costs but also streamlines your workflow.**
+
+## 5. **Customization Limitations**
+
+CDNs are a generalized solution, and while they offer some flexibility, they aren’t tailored to your specific needs. For example, if you need to implement custom caching rules, file versioning, or compression techniques, a CDN might not give you the control you need. You are limited by the features and configurations the CDN provides, which can hinder your ability to optimize your website as you see fit.
+
+### Solution: 
+By managing your own asset delivery, you can customize every aspect of how your files are served. You can control caching policies, implement custom logic for asset versioning, or leverage specific compression algorithms to reduce file sizes tailored to your needs. **Uploading files directly to your website gives you maximum control over how they're served and cached.**
+
+## 6. **Dependency on Third-Party Services**
+
+Finally, relying too much on third-party services can put your site at risk if those services go down, change their terms of use, or even shut down completely. Even if a CDN has a good track record, there's always a chance they could discontinue service, hike up prices, or impose new limitations, forcing you to scramble for alternatives.
+
+### Solution: 
+Reduce your dependency on third parties by hosting your own critical assets. **Simply uploading the files you want on your website directly cuts out the need for reliance on third-party services, ensuring you are in control of your site’s stability and future.**
+
+---
+
+## Conclusion
+
+While CDNs can offer benefits in terms of performance and convenience, relying too heavily on them can expose your website to significant risks—outages, security threats, higher costs, and limitations in control. By balancing CDN usage with self-hosted resources and applying best practices like caching and security measures, you can enjoy the best of both worlds.
+
+However, if you’re looking for simplicity and control, the most straightforward solution is often just **uploading the files you need directly to your website**. This reduces your reliance on external services, mitigates the risks associated with CDNs, and puts you back in control of your site's performance and security.
+
+
