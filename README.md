@@ -4,9 +4,7 @@
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&multiline=true&width=435&height=92&lines=My+blog+made+with+Contentlayer%2C+;Next.js%2C+React%2C+Typescript+and;Tailwind." alt="Typing SVG" />
 </a>
 
-![Vercel Deployment Status](https://vercelbadge.vercel.app/api/linuxfandudeguy/blog?style=flat) 
-
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flinuxfandudeguy%2Fblog%2Frefs%2Fheads%2Fmain%2Fpackage.json&query=%24.version&logo=npm&label=version)
+![Vercel Deployment Status](https://vercelbadge.vercel.app/api/linuxfandudeguy/blog?style=flat) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flinuxfandudeguy%2Fblog%2Frefs%2Fheads%2Fmain%2Fpackage.json&query=%24.version&logo=npm&label=version)
 
 <strong>A blog with Next.js 13 app dir, Contentlayer, Tailwind CSS and dark mode.</strong>
 
