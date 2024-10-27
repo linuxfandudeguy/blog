@@ -39,7 +39,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <a href="https://www.cutercounter.com/" target="_blank" rel="noopener noreferrer">
                 <img src="https://www.cutercounter.com/hits.php?id=hexqdxco&nd=9&style=80" alt="counter for blog" style={{ border: '0' }} />
               </a>
-                <img src="/badges/feed.svg" alt="RSS Feed" className="h-6 w-6" />
+               <a href="/api/rss.xml" target="_blank" rel="noopener noreferrer">
+               <img src="/badges/feed.svg" alt="RSS Feed" className="null" />
+             </a>
             </div>
             {/* End of CuterCounter Code */}
           </div>
