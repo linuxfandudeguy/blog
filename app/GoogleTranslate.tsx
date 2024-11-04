@@ -1,3 +1,5 @@
+"use client";
+
 // components/GoogleTranslate.tsx
 import React, { useEffect } from 'react';
 
