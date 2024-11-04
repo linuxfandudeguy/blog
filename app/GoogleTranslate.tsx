@@ -39,7 +39,7 @@ const GoogleTranslate: React.FC = () => {
         };
     }, []);
 
-    return <div id="google_translate_element" className="flex justify-center mt-4"></div>;
+    return <div id="google_translate_element"></div>;
 };
 
 export default GoogleTranslate;
