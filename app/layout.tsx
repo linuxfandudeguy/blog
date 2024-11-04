@@ -1,10 +1,12 @@
+// app/layout.tsx or the main layout file
+"use client";
+
 import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@/components/analytics";
 import { ModeToggle } from "@/components/mode-toggle";
-import GoogleTranslate from "./GoogleTranslate"; // Import GoogleTranslate
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,22 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          async
+        ></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement(
+                { pageLanguage: 'en', includedLanguages: '', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+                'google_translate_element'
+              );
+            }
+          `,
+        }} />
+      </head>
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
@@ -36,8 +54,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </header>
             <main>{children}</main>
 
-            {/* Add Google Translate */}
-            <GoogleTranslate />
+            {/* Google Translate Element */}
+            <div id="google_translate_element" className="flex justify-center mt-4"></div>
 
             {/* CuterCounter Code */}
             <div className="flex justify-center mt-10">
