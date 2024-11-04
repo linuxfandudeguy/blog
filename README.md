@@ -47,7 +47,6 @@ This is absolutely unbelievable, I love it!
 
 Not only that, the pages are automatically generated and listed on the `index` blog page, this has to be the best thing I have ever seen done with Vercel, without any backend application.
 
-<Image src="public/carbon.svg" alt="screenshot" />
 
 > contents of the `layout.tsx` file in the blog
 
