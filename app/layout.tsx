@@ -1,19 +1,20 @@
-import Link from "next/link"
-import "./globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@/components/analytics"
-import { ModeToggle } from "@/components/mode-toggle"
+import Link from "next/link";
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@/components/analytics";
+import { ModeToggle } from "@/components/mode-toggle";
+import GoogleTranslate from "@/components/GoogleTranslate"; // Import GoogleTranslate
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "welcome to my blog",
   description: "a blog owned by lelbois",
-}
+};
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -34,14 +35,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <main>{children}</main>
+
+            {/* Add Google Translate */}
+            <GoogleTranslate />
+
             {/* CuterCounter Code */}
             <div className="flex justify-center mt-10">
               <a href="https://www.cutercounter.com/" target="_blank" rel="noopener noreferrer">
                 <img src="https://www.cutercounter.com/hits.php?id=hexqdxco&nd=9&style=80" alt="counter for blog" style={{ border: '0' }} />
               </a>
               <a href="/api/rss.xml" target="_blank" rel="noopener noreferrer">
-               <img src="/badges/feed.svg" alt="RSS Feed" className="null" />
-             </a>
+                <img src="/badges/feed.svg" alt="RSS Feed" className="null" />
+              </a>
             </div>
             {/* End of CuterCounter Code */}
           </div>
@@ -49,5 +54,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
