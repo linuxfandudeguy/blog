@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@/components/analytics";
 import { ModeToggle } from "@/components/mode-toggle";
-import GoogleTranslate from "@/components/GoogleTranslate"; // Import GoogleTranslate
+import GoogleTranslate from "./GoogleTranslate"; // Import GoogleTranslate
 
 const inter = Inter({ subsets: ["latin"] });
 
