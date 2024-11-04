@@ -1,5 +1,4 @@
-// app/layout.tsx or the main layout file
-"use client";
+// app/layout.tsx
 
 import Link from "next/link";
 import "./globals.css";
