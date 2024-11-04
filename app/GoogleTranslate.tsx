@@ -11,27 +11,31 @@ declare global {
 
 const GoogleTranslate: React.FC = () => {
     useEffect(() => {
-        const googleTranslateElementInit = () => {
-            new window.google.translate.TranslateElement(
-                {
-                    pageLanguage: 'en',
-                    includedLanguages: '',
-                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                },
-                'google_translate_element'
-            );
+        // Load the Google Translate script
+        const script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js';
+        script.async = true;
+
+        // Set up a callback for when the script loads
+        script.onload = () => {
+            if (window.google) {
+                new window.google.translate.TranslateElement(
+                    {
+                        pageLanguage: 'en',
+                        includedLanguages: '',
+                        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    },
+                    'google_translate_element'
+                );
+            }
         };
 
-        const script = document.createElement('script');
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        
-        window.googleTranslateElementInit = googleTranslateElementInit;
+        // Append the script to the document
         document.body.appendChild(script);
 
         return () => {
+            // Clean up the script and any side effects on unmount
             document.body.removeChild(script);
-            delete window.googleTranslateElementInit;
         };
     }, []);
 
